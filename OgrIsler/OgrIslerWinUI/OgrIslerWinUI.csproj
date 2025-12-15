@@ -118,6 +118,12 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>OgrIslerDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ogrenci\OgrenciListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ogrenci\OgrenciListe.Designer.cs">
+      <DependentUpon>OgrenciListe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnaEkran.resx">
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KullaniciGiris.resx">
       <DependentUpon>KullaniciGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ogrenci\OgrenciListe.resx">
+      <DependentUpon>OgrenciListe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
