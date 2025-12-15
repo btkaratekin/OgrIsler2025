@@ -1,4 +1,4 @@
-﻿using OgrIslerWinUI.OgrIsleri;
+﻿using OgrIslerWinUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
