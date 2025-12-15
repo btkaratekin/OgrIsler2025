@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OgrIslerDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlinanDersler">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DersKodu" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="OgrNo" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Donem" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Yil" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bolumler">
+          <Key>
+            <PropertyRef Name="BKodu" />
+          </Key>
+          <Property Name="BKodu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Danismanlar">
+          <Key>
+            <PropertyRef Name="DKodu" />
+          </Key>
+          <Property Name="DKodu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DAdi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DSoyadi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BKodu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dersler">
+          <Key>
+            <PropertyRef Name="DersKodu" />
+          </Key>
+          <Property Name="DersKodu" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="DersAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Donem" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Akts" Type="int" Nullable="false" />
+          <Property Name="Hds" Type="int" Nullable="false" />
+          <Property Name="BKodu" Type="int" Nullable="false" />
+          <Property Name="DKodu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KisiselBilgiler">
+          <Key>
+            <PropertyRef Name="OgrNo" />
+          </Key>
+          <Property Name="OgrNo" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cinsiyet" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="DTarih" Type="date" Nullable="false" />
+          <Property Name="TcKimlik" Type="nvarchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="Kid" />
+          </Key>
+          <Property Name="Kid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="Adi" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Soyadi" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notlar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SKodu" Type="int" Nullable="false" />
+          <Property Name="Notu" Type="int" Nullable="false" />
+          <Property Name="AlinanDersId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ogrenciler">
+          <Key>
+            <PropertyRef Name="OgrNo" />
+          </Key>
+          <Property Name="OgrNo" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Sinif" Type="int" Nullable="false" />
+          <Property Name="PKodu" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="DKodu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Programlar">
+          <Key>
+            <PropertyRef Name="PKodu" />
+          </Key>
+          <Property Name="PKodu" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="PAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BKodu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SinavTurleri">
+          <Key>
+            <PropertyRef Name="SKodu" />
+          </Key>
+          <Property Name="SKodu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SinavTuru" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_AlinanDersler_Dersler">
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="1" />
+          <End Role="AlinanDersler" Type="Self.AlinanDersler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersKodu" />
+            </Principal>
+            <Dependent Role="AlinanDersler">
+              <PropertyRef Name="DersKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlinanDersler_Ogrenciler">
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="1" />
+          <End Role="AlinanDersler" Type="Self.AlinanDersler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="AlinanDersler">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Danismanlar_Bolumler">
+          <End Role="Bolumler" Type="Self.Bolumler" Multiplicity="1" />
+          <End Role="Danismanlar" Type="Self.Danismanlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BKodu" />
+            </Principal>
+            <Dependent Role="Danismanlar">
+              <PropertyRef Name="BKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dersler_Bolumler">
+          <End Role="Bolumler" Type="Self.Bolumler" Multiplicity="1" />
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BKodu" />
+            </Principal>
+            <Dependent Role="Dersler">
+              <PropertyRef Name="BKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dersler_Danismanlar">
+          <End Role="Danismanlar" Type="Self.Danismanlar" Multiplicity="1" />
+          <End Role="Dersler" Type="Self.Dersler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Danismanlar">
+              <PropertyRef Name="DKodu" />
+            </Principal>
+            <Dependent Role="Dersler">
+              <PropertyRef Name="DKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notlar_AlinanDersler">
+          <End Role="AlinanDersler" Type="Self.AlinanDersler" Multiplicity="1" />
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlinanDersler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="AlinanDersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notlar_SinavTurleri">
+          <End Role="SinavTurleri" Type="Self.SinavTurleri" Multiplicity="1" />
+          <End Role="Notlar" Type="Self.Notlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinavTurleri">
+              <PropertyRef Name="SKodu" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="SKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_Danismanlar">
+          <End Role="Danismanlar" Type="Self.Danismanlar" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Danismanlar">
+              <PropertyRef Name="DKodu" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="DKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_KisiselBilgiler">
+          <End Role="KisiselBilgiler" Type="Self.KisiselBilgiler" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="KisiselBilgiler">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_Programlar">
+          <End Role="Programlar" Type="Self.Programlar" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programlar">
+              <PropertyRef Name="PKodu" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="PKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programlar_Bolumler">
+          <End Role="Bolumler" Type="Self.Bolumler" Multiplicity="1" />
+          <End Role="Programlar" Type="Self.Programlar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BKodu" />
+            </Principal>
+            <Dependent Role="Programlar">
+              <PropertyRef Name="BKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OgrIslerDbModelStoreContainer">
+          <EntitySet Name="AlinanDersler" EntityType="Self.AlinanDersler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bolumler" EntityType="Self.Bolumler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Danismanlar" EntityType="Self.Danismanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dersler" EntityType="Self.Dersler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KisiselBilgiler" EntityType="Self.KisiselBilgiler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notlar" EntityType="Self.Notlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ogrenciler" EntityType="Self.Ogrenciler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Programlar" EntityType="Self.Programlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SinavTurleri" EntityType="Self.SinavTurleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AlinanDersler_Dersler" Association="Self.FK_AlinanDersler_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="AlinanDersler" EntitySet="AlinanDersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlinanDersler_Ogrenciler" Association="Self.FK_AlinanDersler_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="AlinanDersler" EntitySet="AlinanDersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Danismanlar_Bolumler" Association="Self.FK_Danismanlar_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Danismanlar" EntitySet="Danismanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dersler_Bolumler" Association="Self.FK_Dersler_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Dersler" EntitySet="Dersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dersler_Danismanlar" Association="Self.FK_Dersler_Danismanlar">
+            <End Role="Danismanlar" EntitySet="Danismanlar" />
+            <End Role="Dersler" EntitySet="Dersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notlar_AlinanDersler" Association="Self.FK_Notlar_AlinanDersler">
+            <End Role="AlinanDersler" EntitySet="AlinanDersler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notlar_SinavTurleri" Association="Self.FK_Notlar_SinavTurleri">
+            <End Role="SinavTurleri" EntitySet="SinavTurleri" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_Danismanlar" Association="Self.FK_Ogrenciler_Danismanlar">
+            <End Role="Danismanlar" EntitySet="Danismanlar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_KisiselBilgiler" Association="Self.FK_Ogrenciler_KisiselBilgiler">
+            <End Role="KisiselBilgiler" EntitySet="KisiselBilgiler" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_Programlar" Association="Self.FK_Ogrenciler_Programlar">
+            <End Role="Programlar" EntitySet="Programlar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programlar_Bolumler" Association="Self.FK_Programlar_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Programlar" EntitySet="Programlar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OgrIslerDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlinanDers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersKodu" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Donem" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Yil" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dersler" Relationship="Self.FK_AlinanDersler_Dersler" FromRole="AlinanDersler" ToRole="Dersler" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Self.FK_AlinanDersler_Ogrenciler" FromRole="AlinanDersler" ToRole="Ogrenciler" />
+          <NavigationProperty Name="Notlar" Relationship="Self.FK_Notlar_AlinanDersler" FromRole="AlinanDersler" ToRole="Notlar" />
+        </EntityType>
+        <EntityType Name="Bolum">
+          <Key>
+            <PropertyRef Name="BKodu" />
+          </Key>
+          <Property Name="BKodu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Danismanlar" Relationship="Self.FK_Danismanlar_Bolumler" FromRole="Bolumler" ToRole="Danismanlar" />
+          <NavigationProperty Name="Dersler" Relationship="Self.FK_Dersler_Bolumler" FromRole="Bolumler" ToRole="Dersler" />
+          <NavigationProperty Name="Programlar" Relationship="Self.FK_Programlar_Bolumler" FromRole="Bolumler" ToRole="Programlar" />
+        </EntityType>
+        <EntityType Name="Danisman">
+          <Key>
+            <PropertyRef Name="DKodu" />
+          </Key>
+          <Property Name="DKodu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DSoyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BKodu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bolumler" Relationship="Self.FK_Danismanlar_Bolumler" FromRole="Danismanlar" ToRole="Bolumler" />
+          <NavigationProperty Name="Dersler" Relationship="Self.FK_Dersler_Danismanlar" FromRole="Danismanlar" ToRole="Dersler" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Self.FK_Ogrenciler_Danismanlar" FromRole="Danismanlar" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="Ders">
+          <Key>
+            <PropertyRef Name="DersKodu" />
+          </Key>
+          <Property Name="DersKodu" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DersAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Donem" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Akts" Type="Int32" Nullable="false" />
+          <Property Name="Hds" Type="Int32" Nullable="false" />
+          <Property Name="BKodu" Type="Int32" Nullable="false" />
+          <Property Name="DKodu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlinanDersler" Relationship="Self.FK_AlinanDersler_Dersler" FromRole="Dersler" ToRole="AlinanDersler" />
+          <NavigationProperty Name="Bolumler" Relationship="Self.FK_Dersler_Bolumler" FromRole="Dersler" ToRole="Bolumler" />
+          <NavigationProperty Name="Danismanlar" Relationship="Self.FK_Dersler_Danismanlar" FromRole="Dersler" ToRole="Danismanlar" />
+        </EntityType>
+        <EntityType Name="KisiselBilgi">
+          <Key>
+            <PropertyRef Name="OgrNo" />
+          </Key>
+          <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cinsiyet" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DTarih" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TcKimlik" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Self.FK_Ogrenciler_KisiselBilgiler" FromRole="KisiselBilgiler" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="Kid" />
+          </Key>
+          <Property Name="Kid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Soyadi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Not">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SKodu" Type="Int32" Nullable="false" />
+          <Property Name="Notu" Type="Int32" Nullable="false" />
+          <Property Name="AlinanDersId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlinanDersler" Relationship="Self.FK_Notlar_AlinanDersler" FromRole="Notlar" ToRole="AlinanDersler" />
+          <NavigationProperty Name="SinavTurleri" Relationship="Self.FK_Notlar_SinavTurleri" FromRole="Notlar" ToRole="SinavTurleri" />
+        </EntityType>
+        <EntityType Name="Ogrenci">
+          <Key>
+            <PropertyRef Name="OgrNo" />
+          </Key>
+          <Property Name="OgrNo" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sinif" Type="Int32" Nullable="false" />
+          <Property Name="PKodu" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DKodu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AlinanDersler" Relationship="Self.FK_AlinanDersler_Ogrenciler" FromRole="Ogrenciler" ToRole="AlinanDersler" />
+          <NavigationProperty Name="Danismanlar" Relationship="Self.FK_Ogrenciler_Danismanlar" FromRole="Ogrenciler" ToRole="Danismanlar" />
+          <NavigationProperty Name="KisiselBilgiler" Relationship="Self.FK_Ogrenciler_KisiselBilgiler" FromRole="Ogrenciler" ToRole="KisiselBilgiler" />
+          <NavigationProperty Name="Programlar" Relationship="Self.FK_Ogrenciler_Programlar" FromRole="Ogrenciler" ToRole="Programlar" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="PKodu" />
+          </Key>
+          <Property Name="PKodu" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BKodu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bolumler" Relationship="Self.FK_Programlar_Bolumler" FromRole="Programlar" ToRole="Bolumler" />
+          <NavigationProperty Name="Ogrenciler" Relationship="Self.FK_Ogrenciler_Programlar" FromRole="Programlar" ToRole="Ogrenciler" />
+        </EntityType>
+        <EntityType Name="SinavTur">
+          <Key>
+            <PropertyRef Name="SKodu" />
+          </Key>
+          <Property Name="SKodu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SinavTuru" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Notlar" Relationship="Self.FK_Notlar_SinavTurleri" FromRole="SinavTurleri" ToRole="Notlar" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_AlinanDersler_Dersler">
+          <End Role="Dersler" Type="OgrIslerDbModel.Ders" Multiplicity="1" />
+          <End Role="AlinanDersler" Type="OgrIslerDbModel.AlinanDers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dersler">
+              <PropertyRef Name="DersKodu" />
+            </Principal>
+            <Dependent Role="AlinanDersler">
+              <PropertyRef Name="DersKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlinanDersler_Ogrenciler">
+          <End Role="Ogrenciler" Type="OgrIslerDbModel.Ogrenci" Multiplicity="1" />
+          <End Role="AlinanDersler" Type="OgrIslerDbModel.AlinanDers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ogrenciler">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="AlinanDersler">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notlar_AlinanDersler">
+          <End Role="AlinanDersler" Type="OgrIslerDbModel.AlinanDers" Multiplicity="1" />
+          <End Role="Notlar" Type="OgrIslerDbModel.Not" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlinanDersler">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="AlinanDersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Danismanlar_Bolumler">
+          <End Role="Bolumler" Type="OgrIslerDbModel.Bolum" Multiplicity="1" />
+          <End Role="Danismanlar" Type="OgrIslerDbModel.Danisman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BKodu" />
+            </Principal>
+            <Dependent Role="Danismanlar">
+              <PropertyRef Name="BKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dersler_Bolumler">
+          <End Role="Bolumler" Type="OgrIslerDbModel.Bolum" Multiplicity="1" />
+          <End Role="Dersler" Type="OgrIslerDbModel.Ders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BKodu" />
+            </Principal>
+            <Dependent Role="Dersler">
+              <PropertyRef Name="BKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Programlar_Bolumler">
+          <End Role="Bolumler" Type="OgrIslerDbModel.Bolum" Multiplicity="1" />
+          <End Role="Programlar" Type="OgrIslerDbModel.Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bolumler">
+              <PropertyRef Name="BKodu" />
+            </Principal>
+            <Dependent Role="Programlar">
+              <PropertyRef Name="BKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dersler_Danismanlar">
+          <End Role="Danismanlar" Type="OgrIslerDbModel.Danisman" Multiplicity="1" />
+          <End Role="Dersler" Type="OgrIslerDbModel.Ders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Danismanlar">
+              <PropertyRef Name="DKodu" />
+            </Principal>
+            <Dependent Role="Dersler">
+              <PropertyRef Name="DKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_Danismanlar">
+          <End Role="Danismanlar" Type="OgrIslerDbModel.Danisman" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="OgrIslerDbModel.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Danismanlar">
+              <PropertyRef Name="DKodu" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="DKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_KisiselBilgiler">
+          <End Role="KisiselBilgiler" Type="OgrIslerDbModel.KisiselBilgi" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="OgrIslerDbModel.Ogrenci" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="KisiselBilgiler">
+              <PropertyRef Name="OgrNo" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="OgrNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notlar_SinavTurleri">
+          <End Role="SinavTurleri" Type="OgrIslerDbModel.SinavTur" Multiplicity="1" />
+          <End Role="Notlar" Type="OgrIslerDbModel.Not" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SinavTurleri">
+              <PropertyRef Name="SKodu" />
+            </Principal>
+            <Dependent Role="Notlar">
+              <PropertyRef Name="SKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ogrenciler_Programlar">
+          <End Role="Programlar" Type="OgrIslerDbModel.Program" Multiplicity="1" />
+          <End Role="Ogrenciler" Type="OgrIslerDbModel.Ogrenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Programlar">
+              <PropertyRef Name="PKodu" />
+            </Principal>
+            <Dependent Role="Ogrenciler">
+              <PropertyRef Name="PKodu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OgrIslerDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlinanDersler" EntityType="OgrIslerDbModel.AlinanDers" />
+          <EntitySet Name="Bolumler" EntityType="OgrIslerDbModel.Bolum" />
+          <EntitySet Name="Danismanlar" EntityType="OgrIslerDbModel.Danisman" />
+          <EntitySet Name="Dersler" EntityType="OgrIslerDbModel.Ders" />
+          <EntitySet Name="KisiselBilgiler" EntityType="OgrIslerDbModel.KisiselBilgi" />
+          <EntitySet Name="Kullanicilar" EntityType="OgrIslerDbModel.Kullanici" />
+          <EntitySet Name="Notlar" EntityType="OgrIslerDbModel.Not" />
+          <EntitySet Name="Ogrenciler" EntityType="OgrIslerDbModel.Ogrenci" />
+          <EntitySet Name="Programlar" EntityType="OgrIslerDbModel.Program" />
+          <EntitySet Name="SinavTurleri" EntityType="OgrIslerDbModel.SinavTur" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_AlinanDersler_Dersler" Association="Self.FK_AlinanDersler_Dersler">
+            <End Role="Dersler" EntitySet="Dersler" />
+            <End Role="AlinanDersler" EntitySet="AlinanDersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlinanDersler_Ogrenciler" Association="Self.FK_AlinanDersler_Ogrenciler">
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+            <End Role="AlinanDersler" EntitySet="AlinanDersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notlar_AlinanDersler" Association="Self.FK_Notlar_AlinanDersler">
+            <End Role="AlinanDersler" EntitySet="AlinanDersler" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Danismanlar_Bolumler" Association="Self.FK_Danismanlar_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Danismanlar" EntitySet="Danismanlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dersler_Bolumler" Association="Self.FK_Dersler_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Dersler" EntitySet="Dersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Programlar_Bolumler" Association="Self.FK_Programlar_Bolumler">
+            <End Role="Bolumler" EntitySet="Bolumler" />
+            <End Role="Programlar" EntitySet="Programlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dersler_Danismanlar" Association="Self.FK_Dersler_Danismanlar">
+            <End Role="Danismanlar" EntitySet="Danismanlar" />
+            <End Role="Dersler" EntitySet="Dersler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_Danismanlar" Association="Self.FK_Ogrenciler_Danismanlar">
+            <End Role="Danismanlar" EntitySet="Danismanlar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_KisiselBilgiler" Association="Self.FK_Ogrenciler_KisiselBilgiler">
+            <End Role="KisiselBilgiler" EntitySet="KisiselBilgiler" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notlar_SinavTurleri" Association="Self.FK_Notlar_SinavTurleri">
+            <End Role="SinavTurleri" EntitySet="SinavTurleri" />
+            <End Role="Notlar" EntitySet="Notlar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ogrenciler_Programlar" Association="Self.FK_Ogrenciler_Programlar">
+            <End Role="Programlar" EntitySet="Programlar" />
+            <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OgrIslerDbModelStoreContainer" CdmEntityContainer="OgrIslerDbEntities">
+          <EntitySetMapping Name="AlinanDersler">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.AlinanDers">
+              <MappingFragment StoreEntitySet="AlinanDersler">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+                <ScalarProperty Name="Donem" ColumnName="Donem" />
+                <ScalarProperty Name="Yil" ColumnName="Yil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bolumler">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.Bolum">
+              <MappingFragment StoreEntitySet="Bolumler">
+                <ScalarProperty Name="BKodu" ColumnName="BKodu" />
+                <ScalarProperty Name="BAdi" ColumnName="BAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Danismanlar">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.Danisman">
+              <MappingFragment StoreEntitySet="Danismanlar">
+                <ScalarProperty Name="DKodu" ColumnName="DKodu" />
+                <ScalarProperty Name="DAdi" ColumnName="DAdi" />
+                <ScalarProperty Name="DSoyadi" ColumnName="DSoyadi" />
+                <ScalarProperty Name="BKodu" ColumnName="BKodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dersler">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.Ders">
+              <MappingFragment StoreEntitySet="Dersler">
+                <ScalarProperty Name="DersKodu" ColumnName="DersKodu" />
+                <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+                <ScalarProperty Name="Donem" ColumnName="Donem" />
+                <ScalarProperty Name="Akts" ColumnName="Akts" />
+                <ScalarProperty Name="Hds" ColumnName="Hds" />
+                <ScalarProperty Name="BKodu" ColumnName="BKodu" />
+                <ScalarProperty Name="DKodu" ColumnName="DKodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KisiselBilgiler">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.KisiselBilgi">
+              <MappingFragment StoreEntitySet="KisiselBilgiler">
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+                <ScalarProperty Name="Cinsiyet" ColumnName="Cinsiyet" />
+                <ScalarProperty Name="DTarih" ColumnName="DTarih" />
+                <ScalarProperty Name="TcKimlik" ColumnName="TcKimlik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="Kid" ColumnName="Kid" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Adi" ColumnName="Adi" />
+                <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notlar">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.Not">
+              <MappingFragment StoreEntitySet="Notlar">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SKodu" ColumnName="SKodu" />
+                <ScalarProperty Name="Notu" ColumnName="Notu" />
+                <ScalarProperty Name="AlinanDersId" ColumnName="AlinanDersId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ogrenciler">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.Ogrenci">
+              <MappingFragment StoreEntitySet="Ogrenciler">
+                <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+                <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+                <ScalarProperty Name="PKodu" ColumnName="PKodu" />
+                <ScalarProperty Name="DKodu" ColumnName="DKodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Programlar">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.Program">
+              <MappingFragment StoreEntitySet="Programlar">
+                <ScalarProperty Name="PKodu" ColumnName="PKodu" />
+                <ScalarProperty Name="PAdi" ColumnName="PAdi" />
+                <ScalarProperty Name="BKodu" ColumnName="BKodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SinavTurleri">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.SinavTur">
+              <MappingFragment StoreEntitySet="SinavTurleri">
+                <ScalarProperty Name="SKodu" ColumnName="SKodu" />
+                <ScalarProperty Name="SinavTuru" ColumnName="SinavTuru" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="OgrIslerDbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

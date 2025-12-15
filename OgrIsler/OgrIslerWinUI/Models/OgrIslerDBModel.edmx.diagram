@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0f7a6da35d114b0ca9d1d594738942aa" Name="Diagram1">
+        <EntityTypeShape EntityType="OgrIslerDbModel.AlinanDers" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.Bolum" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.Danisman" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.Ders" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.KisiselBilgi" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.Kullanici" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.Not" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.Ogrenci" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.Program" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.SinavTur" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="OgrIslerDbModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_AlinanDersler_Dersler" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_AlinanDersler_Ogrenciler" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Notlar_AlinanDersler" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Danismanlar_Bolumler" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Dersler_Bolumler" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Programlar_Bolumler" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Dersler_Danismanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Ogrenciler_Danismanlar" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Ogrenciler_KisiselBilgiler" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Notlar_SinavTurleri" ManuallyRouted="false" />
+        <AssociationConnector Association="OgrIslerDbModel.FK_Ogrenciler_Programlar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
