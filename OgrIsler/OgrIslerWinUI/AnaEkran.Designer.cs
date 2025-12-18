@@ -49,15 +49,12 @@
             this.danışmanİşlemleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danışmanEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danışmanDüzenleSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.derslerNotlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hakkındaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.öğrenciDanışmanDeğiştirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.danışmanDersAtamaDeğiştirmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.derslerNotlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.derslerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
-            this.notlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dersEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dersDüzenleSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripSeparator();
@@ -67,11 +64,14 @@
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.öğrenciDersKaydıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.öğrenciDersSilmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
+            this.notlarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notGirişiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripSeparator();
             this.notListeleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.öğrencilereGöreNotListeleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.derslereGöreNotListeleriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hakkındaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.öğrenciİşleriOtomasyonuHakkındaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -87,7 +87,7 @@
             this.hakkındaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1762, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1618, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -221,38 +221,20 @@
             this.toolStripMenuItem6,
             this.danışmanDersAtamaDeğiştirmeToolStripMenuItem});
             this.danışmanİşlemleriToolStripMenuItem.Name = "danışmanİşlemleriToolStripMenuItem";
-            this.danışmanİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.danışmanİşlemleriToolStripMenuItem.Size = new System.Drawing.Size(263, 34);
             this.danışmanİşlemleriToolStripMenuItem.Text = "Danışman İşlemleri";
             // 
             // danışmanEkleToolStripMenuItem
             // 
             this.danışmanEkleToolStripMenuItem.Name = "danışmanEkleToolStripMenuItem";
-            this.danışmanEkleToolStripMenuItem.Size = new System.Drawing.Size(303, 34);
+            this.danışmanEkleToolStripMenuItem.Size = new System.Drawing.Size(401, 34);
             this.danışmanEkleToolStripMenuItem.Text = "Danışman Ekle";
             // 
             // danışmanDüzenleSilToolStripMenuItem
             // 
             this.danışmanDüzenleSilToolStripMenuItem.Name = "danışmanDüzenleSilToolStripMenuItem";
-            this.danışmanDüzenleSilToolStripMenuItem.Size = new System.Drawing.Size(303, 34);
+            this.danışmanDüzenleSilToolStripMenuItem.Size = new System.Drawing.Size(401, 34);
             this.danışmanDüzenleSilToolStripMenuItem.Text = "Danışman Düzenle && Sil";
-            // 
-            // derslerNotlarToolStripMenuItem
-            // 
-            this.derslerNotlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.derslerToolStripMenuItem,
-            this.toolStripMenuItem7,
-            this.notlarToolStripMenuItem});
-            this.derslerNotlarToolStripMenuItem.Name = "derslerNotlarToolStripMenuItem";
-            this.derslerNotlarToolStripMenuItem.Size = new System.Drawing.Size(156, 29);
-            this.derslerNotlarToolStripMenuItem.Text = "Dersler && Notlar";
-            // 
-            // hakkındaToolStripMenuItem
-            // 
-            this.hakkındaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.öğrenciİşleriOtomasyonuHakkındaToolStripMenuItem});
-            this.hakkındaToolStripMenuItem.Name = "hakkındaToolStripMenuItem";
-            this.hakkındaToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
-            this.hakkındaToolStripMenuItem.Text = "Hakkında";
             // 
             // toolStripMenuItem5
             // 
@@ -276,6 +258,16 @@
             this.danışmanDersAtamaDeğiştirmeToolStripMenuItem.Size = new System.Drawing.Size(401, 34);
             this.danışmanDersAtamaDeğiştirmeToolStripMenuItem.Text = "Danışman Ders Atama && Değiştirme";
             // 
+            // derslerNotlarToolStripMenuItem
+            // 
+            this.derslerNotlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.derslerToolStripMenuItem,
+            this.toolStripMenuItem7,
+            this.notlarToolStripMenuItem});
+            this.derslerNotlarToolStripMenuItem.Name = "derslerNotlarToolStripMenuItem";
+            this.derslerNotlarToolStripMenuItem.Size = new System.Drawing.Size(156, 29);
+            this.derslerNotlarToolStripMenuItem.Text = "Dersler && Notlar";
+            // 
             // derslerToolStripMenuItem
             // 
             this.derslerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -287,40 +279,25 @@
             this.öğrenciDersKaydıToolStripMenuItem,
             this.öğrenciDersSilmeToolStripMenuItem});
             this.derslerToolStripMenuItem.Name = "derslerToolStripMenuItem";
-            this.derslerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.derslerToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
             this.derslerToolStripMenuItem.Text = "Dersler";
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(267, 6);
-            // 
-            // notlarToolStripMenuItem
-            // 
-            this.notlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.notGirişiToolStripMenuItem,
-            this.toolStripMenuItem10,
-            this.notListeleriToolStripMenuItem});
-            this.notlarToolStripMenuItem.Name = "notlarToolStripMenuItem";
-            this.notlarToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.notlarToolStripMenuItem.Text = "Notlar";
             // 
             // dersEkleToolStripMenuItem
             // 
             this.dersEkleToolStripMenuItem.Name = "dersEkleToolStripMenuItem";
-            this.dersEkleToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.dersEkleToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
             this.dersEkleToolStripMenuItem.Text = "Ders Ekle";
             // 
             // dersDüzenleSilToolStripMenuItem
             // 
             this.dersDüzenleSilToolStripMenuItem.Name = "dersDüzenleSilToolStripMenuItem";
-            this.dersDüzenleSilToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.dersDüzenleSilToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
             this.dersDüzenleSilToolStripMenuItem.Text = "Ders Düzenle && Sil";
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(267, 6);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(262, 6);
             // 
             // listelerToolStripMenuItem
             // 
@@ -328,7 +305,7 @@
             this.programlaraAitDerslerToolStripMenuItem,
             this.öğrencilereAitDerslerToolStripMenuItem});
             this.listelerToolStripMenuItem.Name = "listelerToolStripMenuItem";
-            this.listelerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.listelerToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
             this.listelerToolStripMenuItem.Text = "Listeler";
             // 
             // programlaraAitDerslerToolStripMenuItem
@@ -346,30 +323,45 @@
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(267, 6);
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(262, 6);
             // 
             // öğrenciDersKaydıToolStripMenuItem
             // 
             this.öğrenciDersKaydıToolStripMenuItem.Name = "öğrenciDersKaydıToolStripMenuItem";
-            this.öğrenciDersKaydıToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.öğrenciDersKaydıToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
             this.öğrenciDersKaydıToolStripMenuItem.Text = "Öğrenci Ders Kaydı";
             // 
             // öğrenciDersSilmeToolStripMenuItem
             // 
             this.öğrenciDersSilmeToolStripMenuItem.Name = "öğrenciDersSilmeToolStripMenuItem";
-            this.öğrenciDersSilmeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.öğrenciDersSilmeToolStripMenuItem.Size = new System.Drawing.Size(265, 34);
             this.öğrenciDersSilmeToolStripMenuItem.Text = "Öğrenci Ders Silme";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(166, 6);
+            // 
+            // notlarToolStripMenuItem
+            // 
+            this.notlarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.notGirişiToolStripMenuItem,
+            this.toolStripMenuItem10,
+            this.notListeleriToolStripMenuItem});
+            this.notlarToolStripMenuItem.Name = "notlarToolStripMenuItem";
+            this.notlarToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.notlarToolStripMenuItem.Text = "Notlar";
             // 
             // notGirişiToolStripMenuItem
             // 
             this.notGirişiToolStripMenuItem.Name = "notGirişiToolStripMenuItem";
-            this.notGirişiToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.notGirişiToolStripMenuItem.Size = new System.Drawing.Size(207, 34);
             this.notGirişiToolStripMenuItem.Text = "Not Girişi";
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(267, 6);
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(204, 6);
             // 
             // notListeleriToolStripMenuItem
             // 
@@ -377,7 +369,7 @@
             this.öğrencilereGöreNotListeleriToolStripMenuItem,
             this.derslereGöreNotListeleriToolStripMenuItem});
             this.notListeleriToolStripMenuItem.Name = "notListeleriToolStripMenuItem";
-            this.notListeleriToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.notListeleriToolStripMenuItem.Size = new System.Drawing.Size(207, 34);
             this.notListeleriToolStripMenuItem.Text = "Not Listeleri";
             // 
             // öğrencilereGöreNotListeleriToolStripMenuItem
@@ -392,6 +384,14 @@
             this.derslereGöreNotListeleriToolStripMenuItem.Size = new System.Drawing.Size(345, 34);
             this.derslereGöreNotListeleriToolStripMenuItem.Text = "Derslere Göre Not Listeleri";
             // 
+            // hakkındaToolStripMenuItem
+            // 
+            this.hakkındaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.öğrenciİşleriOtomasyonuHakkındaToolStripMenuItem});
+            this.hakkındaToolStripMenuItem.Name = "hakkındaToolStripMenuItem";
+            this.hakkındaToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.hakkındaToolStripMenuItem.Text = "Hakkında";
+            // 
             // öğrenciİşleriOtomasyonuHakkındaToolStripMenuItem
             // 
             this.öğrenciİşleriOtomasyonuHakkındaToolStripMenuItem.Name = "öğrenciİşleriOtomasyonuHakkındaToolStripMenuItem";
@@ -402,7 +402,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1762, 989);
+            this.ClientSize = new System.Drawing.Size(1618, 944);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;

@@ -1,4 +1,5 @@
 ﻿using OgrIslerWinUI;
+using OgrIslerWinUI.Ogrenci;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +21,10 @@ namespace OgrIslerWinUI
 
         private void kayıtlıÖğrenciListesiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            OgrenciListe ogrenciListe = new OgrenciListe();
+            ogrenciListe.MdiParent = this;
+            ogrenciListe.WindowState = FormWindowState.Maximized;
+            ogrenciListe.Show();
         }
 
         private void AnaEkran_FormClosing(object sender, FormClosingEventArgs e)
