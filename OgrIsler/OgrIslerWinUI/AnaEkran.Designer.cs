@@ -117,6 +117,7 @@
             this.öğrenciEkleToolStripMenuItem.Name = "öğrenciEkleToolStripMenuItem";
             this.öğrenciEkleToolStripMenuItem.Size = new System.Drawing.Size(286, 34);
             this.öğrenciEkleToolStripMenuItem.Text = "Öğrenci Ekle";
+            this.öğrenciEkleToolStripMenuItem.Click += new System.EventHandler(this.öğrenciEkleToolStripMenuItem_Click);
             // 
             // öğrenciDüzenleSilToolStripMenuItem
             // 

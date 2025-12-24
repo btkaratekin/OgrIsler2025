@@ -31,5 +31,13 @@ namespace OgrIslerWinUI
         {
             Application.Exit();
         }
+
+        private void öğrenciEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OgrenciEkle ogrenciEkle = new OgrenciEkle();
+            ogrenciEkle.MdiParent = this;
+            ogrenciEkle.WindowState = FormWindowState.Maximized;
+            ogrenciEkle.Show();
+        }
     }
 }
