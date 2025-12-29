@@ -64,6 +64,18 @@
     <Compile Include="AnaEkran.Designer.cs">
       <DependentUpon>AnaEkran.cs</DependentUpon>
     </Compile>
+    <Compile Include="Bolumİsler\BolumEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bolumİsler\BolumEkle.Designer.cs">
+      <DependentUpon>BolumEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bolumİsler\BolumListe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bolumİsler\BolumListe.Designer.cs">
+      <DependentUpon>BolumListe.cs</DependentUpon>
+    </Compile>
     <Compile Include="KullaniciGiris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +146,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AnaEkran.resx">
       <DependentUpon>AnaEkran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bolumİsler\BolumEkle.resx">
+      <DependentUpon>BolumEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bolumİsler\BolumListe.resx">
+      <DependentUpon>BolumListe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KullaniciGiris.resx">
       <DependentUpon>KullaniciGiris.cs</DependentUpon>

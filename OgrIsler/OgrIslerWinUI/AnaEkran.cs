@@ -1,4 +1,5 @@
 ﻿using OgrIslerWinUI;
+using OgrIslerWinUI.Bolumİsler;
 using OgrIslerWinUI.Ogrenci;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,23 @@ namespace OgrIslerWinUI
             ogrenciEkle.MdiParent = this;
             ogrenciEkle.WindowState = FormWindowState.Maximized;
             ogrenciEkle.Show();
+        }
+
+        private void sistemeKayıtlıBölümVeProgramlarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BolumListe bolumliste = new BolumListe();
+            bolumliste.MdiParent= this; 
+            bolumliste.WindowState=FormWindowState.Maximized;
+            bolumliste.Show();
+        }
+
+        private void bölümEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BolumEkle bolumEkle = new BolumEkle();
+            bolumEkle.MdiParent = this;
+            bolumEkle.WindowState = FormWindowState.Maximized;
+            bolumEkle.Show();
+
         }
     }
 }

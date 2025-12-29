@@ -149,6 +149,7 @@
             this.bölümEkleToolStripMenuItem.Name = "bölümEkleToolStripMenuItem";
             this.bölümEkleToolStripMenuItem.Size = new System.Drawing.Size(399, 34);
             this.bölümEkleToolStripMenuItem.Text = "Bölüm Ekle";
+            this.bölümEkleToolStripMenuItem.Click += new System.EventHandler(this.bölümEkleToolStripMenuItem_Click);
             // 
             // bölümDüzenleSilToolStripMenuItem
             // 
@@ -183,6 +184,7 @@
             this.sistemeKayıtlıBölümVeProgramlarToolStripMenuItem.Name = "sistemeKayıtlıBölümVeProgramlarToolStripMenuItem";
             this.sistemeKayıtlıBölümVeProgramlarToolStripMenuItem.Size = new System.Drawing.Size(399, 34);
             this.sistemeKayıtlıBölümVeProgramlarToolStripMenuItem.Text = "Sisteme Kayıtlı Bölüm ve Programlar";
+            this.sistemeKayıtlıBölümVeProgramlarToolStripMenuItem.Click += new System.EventHandler(this.sistemeKayıtlıBölümVeProgramlarToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 

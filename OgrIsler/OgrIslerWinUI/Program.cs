@@ -1,4 +1,5 @@
-﻿using OgrIslerWinUI.Models;
+﻿
+using OgrIslerWinUI.Models;
 using OgrIslerWinUI.Ogrenci;
 using System;
 using System.Collections.Generic;

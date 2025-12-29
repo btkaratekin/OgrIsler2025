@@ -546,8 +546,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Ogrenciler_Programlar">
-          <End Role="Programlar" Type="OgrIslerDbModel.Program" Multiplicity="1" />
-          <End Role="Ogrenciler" Type="OgrIslerDbModel.Ogrenci" Multiplicity="*" />
+          <End Role="Programlar" Type="OgrIslerDbModel.Program" Multiplicity="1" >
+          </End>
+          <End Role="Ogrenciler" Type="OgrIslerDbModel.Ogrenci" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Programlar">
               <PropertyRef Name="PKodu" />
