@@ -38,27 +38,13 @@ namespace OgrIslerWinUI.Ogrenci
             comboBox1.DisplayMember = "Badi";
             comboBox1.ValueMember = "BKodu";
             
-            var  DanismanListe = db.Danismanlar.Select(d => new { 
-                d.DKodu, 
-                DAdiSoyadi=d.DAdi+" "+d.DSoyadi }
-                ).ToList();
-            listBox1.DataSource = DanismanListe;
-            listBox1.DisplayMember = "DAdiSoyadi";
-            listBox1.ValueMember = "DKodu";
+            
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ////MessageBox.Show(comboBox1.SelectedValue.ToString());//comboBox2.DataSource = null;    
-            //if (comboBox1.SelectedValue!=null)
-            //{
-            //    var db = new OgrIslerDbEntities();
-            //    var programListe = db.Programlar.Where(x => x.BKodu == (int)comboBox1.SelectedValue).ToList();
-            //    comboBox2.DataSource = programListe;
-            //    comboBox2.DisplayMember = "PAdi";
-            //    comboBox2.ValueMember = "PKodu";
-            //}
+            
             
         }
 
@@ -119,6 +105,15 @@ namespace OgrIslerWinUI.Ogrenci
                 comboBox2.DataSource = Programlar;
                 comboBox2.DisplayMember = "PAdi";
                 comboBox2.ValueMember = "PKodu";
+
+                var Danismanlar = db.Danismanlar.Where(d => d.BKodu == (int)comboBox1.SelectedValue).Select(bd => new
+                {
+                    DanismanKodu=bd.DKodu,
+                    DanismanAdiSoyadi=bd.DAdi+" "+bd.DSoyadi
+                }).ToList();
+                listBox1.DataSource = Danismanlar;
+                listBox1.DisplayMember = "DanismanAdiSoyadi";
+                listBox1.ValueMember = "DanismanKodu";
             }
                
         }

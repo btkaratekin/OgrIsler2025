@@ -173,6 +173,7 @@
             this.programDüzenleSilToolStripMenuItem.Name = "programDüzenleSilToolStripMenuItem";
             this.programDüzenleSilToolStripMenuItem.Size = new System.Drawing.Size(399, 34);
             this.programDüzenleSilToolStripMenuItem.Text = "Program Düzenle && Sil";
+            this.programDüzenleSilToolStripMenuItem.Click += new System.EventHandler(this.programDüzenleSilToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 

@@ -57,5 +57,14 @@ namespace OgrIslerWinUI
             bolumEkle.Show();
 
         }
+
+        private void programDüzenleSilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProgramDuzenleSil programDuzenleSil = new ProgramDuzenleSil();
+            programDuzenleSil.MdiParent = this;
+            programDuzenleSil.WindowState = FormWindowState.Maximized;
+            programDuzenleSil.Show();
+
+        }
     }
 }
